@@ -1,0 +1,499 @@
+---
+title: "Introduction to Git, GitHub, and GitHub Classroom"
+author: "Jason Aubrey and Jeff Mei"
+format:
+  revealjs:
+    theme: dark
+    transition: slide
+    slide-number: true
+    chalkboard: true
+    footer: "Git, GitHub & GitHub Classroom"
+    highlight-style: github-dark
+    code-block-bg: true
+    incremental: false
+    width: 1280
+    height: 720
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+# Part 1: Why This Matters {background-color="#0f3460"}
+
+
+## 🐦 A Job For The Birds {background-color="#16213e"}
+
+**Data Scientist — Avian Observation Analytics**  
+*eBird / Cornell Lab of Ornithology | Ithaca, NY*
+
+**What you'd do:**
+
+- Build species distribution models
+- Analyze migration patterns & population trends
+- Develop pipelines for large spatial datasets
+- Contribute to open-source R and Python packages
+
+
+**Salary:** $85,000–$105,000
+
+
+---
+
+## Would You Hire This Student? {background-color="#1a1a2e"}
+
+Hesa Dodo (UArizona, Data Science and Ornithology '24) linked to this GitHub repo in his resume:
+
+https://github.com/UArizona-Mathematics/for-the-birds
+
+
+
+## Your GitHub Profile IS Your Portfolio {background-color="#533483"}
+
+:::: {.columns}
+::: {.column width="50%"}
+### What employers look for
+
+- Clear file and folder organization
+- Readable, reasonably structured code
+- **Informative README files**
+- **Meaningful commit messages**
+- Evidence of incremental work over time
+
+> *They want to see how you work,  
+> not just what you know.*
+:::
+::: {.column width="50%"}
+### What makes a repo stand out
+
+- README explains what the project does and how to run it
+- Commits tell a story: `"Load data"` → `"Clean missing values"` → `"Add trend plot"`
+- Code is organized, not cluttered with unused files
+- Even small projects look professional when done with care
+
+:::
+::::
+
+
+# Part 2: Git & GitHub {background-color="#0f3460"}
+
+
+## The Problem Version Control Solves {background-color="#16213e"}
+
+::: {.r-stack}
+::: {.fragment .fade-in-then-out}
+```
+report_final.docx
+report_final_v2.docx
+report_final_v2_EDITED.docx
+report_FINAL_reallyfinal.docx
+report_FINAL_reallyfinal_JM_edits.docx
+```
+:::
+::: {.fragment}
+### Common pre-Git approaches:
+- 📧 Emailing files back and forth
+- 📁 Shared drives with conflicting versions
+- 💾 Saving copies with different names
+
+**These don't scale.** They can't answer:  
+*Who changed what? When? Which version is current? How do we merge?*
+:::
+:::
+
+---
+
+## Git: The Tool {background-color="#0f3460"}
+
+:::: {.columns}
+::: {.column width="60%"}
+**Git runs on your computer.**
+
+- Tracks changes to files over time
+- Saves history as **commits** — labeled checkpoints
+- Records *who* changed *what* and *when*
+- Works **offline** — no internet needed
+
+```bash
+git init              # start tracking a folder
+git add .             # stage your changes
+git commit -m "..."   # save a checkpoint
+```
+:::
+::: {.column width="40%"}
+### Key ideas
+
+**Repository (repo)**  
+A folder Git is tracking, including its full history.
+
+**Commit**  
+A saved snapshot with a message describing what changed.
+
+**Clone**  
+Copy an existing repo to your computer.
+:::
+::::
+
+
+## GitHub: The Hub {background-color="#0f3460"}
+
+**GitHub lives in the cloud.**
+
+- Stores a copy of your git repository online
+- Enables sharing and collaboration
+- Widely used as a professional portfolio
+
+```bash
+git push    # upload commits to GitHub
+git pull    # download others' changes
+git clone   # copy a repo to your computer
+```
+
+## The Core Workflow {background-color="#1a1a2e"}
+
+```{mermaid}
+%%| echo: false
+flowchart LR
+    A[Edit files] --> B[git add .]
+    B --> C["git commit -m '...'"]
+    C --> D[git push]
+    D --> E[GitHub ✅]
+    F[git pull] --> A
+
+
+    style A fill:#0f3460,color:#fff
+    style B fill:#533483,color:#fff
+    style C fill:#533483,color:#fff
+    style D fill:#0f3460,color:#fff
+    style E fill:#2d6a4f,color:#fff
+    style F fill:#2d6a4f,color:#fff
+
+```
+
+## Commit Best Practices {background-color="#1a1a2e"}
+
+:::: {.columns}
+::: {.column width="50%"}
+### ✅ Good commit messages
+```
+Clean and filter dataset
+Add summary statistics table
+Draft introduction section
+Fix off-by-one error in loop
+```
+Commit when you finish a **logical step**.
+:::
+::: {.column width="50%"}
+### ❌ Poor commit messages
+```
+stuff
+changes
+worked on homework
+asdfgh
+final version
+```
+These tell no story and help no one — including future you.
+:::
+::::
+
+> Commit history is part of the record of your work — and part of your portfolio.
+
+
+# Part 3: GitHub Classroom {background-color="#0f3460"}
+
+## What Is GitHub Classroom? {background-color="#16213e"}
+
+A tool built on GitHub specifically for teaching and learning. GitHub Classroom is:
+
+- A way to distribute assignments via git
+- A system for collecting work via git
+- A platform for viewing progress & giving feedback
+- A way to run **automated tests** on student code
+
+---
+
+## Assignment Workflow {background-color="#1a1a2e"}
+
+```{mermaid}
+%% | echo: false
+%% | fig-align: "center"
+flowchart TD
+    A["`🔗 Click assignment link`"] --> B["`📁 GitHub creates your private repo`"]
+    B --> C["⬇️ Clone to your computer"]
+    C --> D["📖 Read README.md"]
+    D --> E["✏️ Edit files / do the work"]
+    E --> F["git add . && git commit -m '...'"]
+    F --> G["git push"]
+    G --> H["✅ Submitted + autograded!"]
+    F --> E
+
+    style A fill:#533483,color:#fff
+    style H fill:#2d6a4f,color:#fff
+```
+
+---
+
+## Submission & Deadlines {background-color="#1a1a2e"}
+
+::: {.callout-warning}
+## There is NO "Submit" button.
+:::
+
+Your work is submitted based on:
+
+1. **What has been committed**, AND
+2. **What has been pushed to GitHub** by the deadline
+
+Instructors view your repo directly — they see your **full commit history**, not just the final result.
+
+**Checklist before every deadline:**
+```bash
+git add .
+git commit -m "Final submission"
+git push
+# Then refresh GitHub in your browser and confirm your changes are there!
+```
+
+## How Autograding Works {background-color="#533483"}
+
+When students push, GitHub Classroom automatically runs instructor defined tests against their code.
+
+:::: {.columns}
+::: {.column width="55%"}
+**Behind the scenes:**
+
+- Every push triggers instructor defined GitHub Actions
+- It runs the code and checks output against expected results
+- If all tests pass, you students get a ✅; if not, they get a ❌ and can fix and push again.
+:::
+::: {.column width="45%"}
+**What this means for students:**
+
+- Should push early and often to check your progress
+- A ❌ is not a catastrophe — fix and push again
+- Tests run on your *committed and pushed* code, not unsaved edits
+- **Final grade uses the last push before the deadline**
+
+:::
+::::
+
+## Individual vs. Group Projects {background-color="#0f3460"}
+
+:::: {.columns}
+::: {.column width="50%"}
+### Individual
+- Each student has own private repo
+- Only the student + course staff can see it
+- Clear individual record of their work
+:::
+::: {.column width="50%"}
+### Group
+- One **shared** repo for the whole group
+- Everyone clones the same repo
+- Git records *who* contributed *what*
+- Best practices require more git sophistication (e.g. branches, pull requests) but the core workflow is the same
+```bash
+git pull  # ← do this every time you sit down
+```
+:::
+::::
+
+# Part 4: Hands-On Demo {background-color="#2d6a4f"}
+
+## 🐦 for-the-birds {background-color="#2d6a4f"}
+
+### Accept the assignment now:
+
+::: {style="font-size: 1.4em; text-align: center; padding: 0.5em;"}
+[classroom.github.com/a/3Pd5JHnh](https://classroom.github.com/a/3Pd5JHnh)
+:::
+
+Starter repo: [github.com/UArizona-Mathematics/for-the-birds](https://github.com/UArizona-Mathematics/for-the-birds)
+
+> While you're accepting, GitHub Classroom is creating a **private copy** of the starter repo just for you.
+
+::: {.notes}
+Have everyone click the link now. While they wait, explain what's happening: GitHub Classroom is forking the starter repo into the course organization and setting up access permissions automatically.
+:::
+
+---
+
+## Demo Step 1: Explore Your Repo {background-color="#1a1a2e"}
+
+Once your repo is created on GitHub:
+
+1. Notice it says **Private** — only you and course staff can see it
+2. Read the **`README.md`** file
+
+. . .
+
+::: {.callout-tip}
+## Always read the README first.
+It tells you all about the code in the repo.  
+It's also the first thing a potential employer reads.
+:::
+
+::: {.notes}
+Show on screen. Navigate to the newly created repo, point out the Private badge, open README.md and read it aloud.
+:::
+
+---
+
+## Demo Step 2: Clone to Your Computer {background-color="#1a1a2e"}
+
+Copy the HTTPS URL from your repo on GitHub, then:
+
+```bash
+git clone <YOUR-REPO-URL>
+cd for-the-birds-<your-username>
+ls    # confirm the files are there (or dir on Windows)
+```
+
+Or in an IDE often something like: File → Clone Repository → paste your URL.
+
+> Your local copy is now connected to GitHub.
+
+::: {.notes}
+Demo live in terminal. Show the output, then ls to show the files are there.
+:::
+
+---
+
+## Demo Step 3: Fix the Typo {background-color="#1a1a2e"}
+
+Open `birds.py` in your editor. There's a bug — find it and fix it.
+
+```bash
+# Run the code to see what happens:
+python birds.py
+```
+
+Fix the typo, then run again to confirm it works.
+
+::: {.callout-note}
+Don't commit yet — we have more changes to make.
+:::
+
+::: {.notes}
+Demo live. Show the error, find the typo, fix it, run again to confirm.
+:::
+
+---
+
+## Demo Step 4: Add a Bird to the List {background-color="#1a1a2e"}
+
+Following the pattern already in the code, add a new bird to the list.
+
+```bash
+# Run again to confirm your new bird appears:
+python birds.py
+```
+
+> Pick a real bird. Extra credit if it's one you've actually seen. 🦅
+
+::: {.notes}
+Demo live. Add a bird, run the code, confirm output includes the new bird.
+:::
+
+---
+
+## Demo Step 5: Edit the README {background-color="#1a1a2e"}
+
+Open `README.md` and improve it.
+
+
+::: {.notes}
+Demo live. Write a short but real README. Contrast with the "done" example from earlier in the presentation.
+:::
+
+---
+
+## Demo Step 6: Commit Your Work {background-color="#1a1a2e"}
+
+```bash
+git status         # see what's changed
+git add .
+git status         # confirm what's staged
+git commit -m "Fix typo, add [your bird], update README"
+```
+
+. . .
+
+::: {.callout-note}
+Your changes are saved as a checkpoint — but still only on your computer.  
+Nothing is on GitHub yet.
+:::
+
+---
+
+## Demo Step 7: Push & Watch the Autograder {background-color="#2d6a4f"}
+
+```bash
+git push
+```
+
+Then on GitHub:
+
+1. Go to your repo
+2. Refresh the page to see your commit and message
+4. ✅ green = passing · ❌ red = something to fix and push again
+
+. . .
+
+::: {.callout-important}
+## Submitted!
+Your work is now visible to instructors.  
+If you get a ❌, fix the issue, commit again, and push again.
+:::
+
+::: {.notes}
+Push live, then navigate to Actions tab and show the workflow running. This is the payoff — show the green checkmark appearing.
+:::
+
+---
+
+## The Full Loop {background-color="#16213e"}
+
+```bash
+# One time to get started:
+git clone <repo-url>
+
+# Every work session:
+git pull                       # get latest (essential for groups)
+
+# As you work:
+git add .
+git commit -m "clear message"
+git push                       # submits + triggers autograder
+```
+
+. . .
+
+> **Follow this sequence consistently and most Git problems can be avoided.**
+
+---
+
+## Installing & Configuring Git {background-color="#0f3460"}
+
+Check if you have it:
+```bash
+git --version
+```
+
+If not: [git-scm.com/downloads](https://git-scm.com/downloads)
+
+**One-time setup (required):**
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "you@email.com"
+```
+
+## Helpful Resources {background-color="#1a1a2e"}
+
+| Resource | URL |
+|----------|-----|
+| GitHub Docs | [docs.github.com/en/get-started](https://docs.github.com/en/get-started) |
+| GitHub Classroom Docs | [docs.github.com/en/classroom](https://docs.github.com/en/classroom) |
+| Git Handbook | [guides.github.com/introduction/git-handbook](https://guides.github.com/introduction/git-handbook/) |
+| Pro Git (free book) | [git-scm.com/book/en/v2](https://git-scm.com/book/en/v2) |
+
