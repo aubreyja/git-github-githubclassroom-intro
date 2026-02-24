@@ -19,6 +19,21 @@ execute:
   message: false
 ---
 
+## Installing & Configuring Git {background-color="#0f3460"}
+
+Check if you have it:
+```bash
+git --version
+```
+
+If not: [git-scm.com/downloads](https://git-scm.com/downloads)
+
+**One-time setup (required):**
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "you@email.com"
+```
+
 # Part 1: Why This Matters {background-color="#0f3460"}
 
 
@@ -470,23 +485,6 @@ git push                       # submits + triggers autograder
 . . .
 
 > **Follow this sequence consistently and most Git problems can be avoided.**
-
----
-
-## Installing & Configuring Git {background-color="#0f3460"}
-
-Check if you have it:
-```bash
-git --version
-```
-
-If not: [git-scm.com/downloads](https://git-scm.com/downloads)
-
-**One-time setup (required):**
-```bash
-git config --global user.name "Your Name"
-git config --global user.email "you@email.com"
-```
 
 ## Helpful Resources {background-color="#1a1a2e"}
 
